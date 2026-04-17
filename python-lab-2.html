@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Lab 02 | Data Logic</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+
+    <style>
+        :root { --bg: #0f172a; --text: #f8fafc; --accent: #22c55e; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; padding: 40px; line-height: 1.6; }
+        .nav a { color: var(--accent); text-decoration: none; font-weight: bold; }
+        .container { max-width: 800px; margin: auto; }
+        pre { border-radius: 8px; margin: 25px 0; }
+    </style>
+</head>
+<body>
+
+    <div class="nav"><a href="index.html">← Back to Home</a></div>
+
+    <div class="container">
+        <h1>Advanced Data Processing</h1>
+        <p>In this project, I used Python to filter a list of numbers, keeping only the ones that meet specific criteria. This is a fundamental concept in data science and backend logic.</p>
+
+        <pre><code class="language-python">
+# A script to filter high-value transactions
+transactions = [10.50, 100.00, 5.25, 500.0, 12.00]
+high_value = []
+
+def filter_data(data_list):
+    for item in data_list:
+        if item > 50:
+            high_value.append(item)
+    return high_value
+
+print(f"High value items: {filter_data(transactions)}")
+        </code></pre>
+
+        <div style="background: #1e293b; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent);">
+            <strong>What I learned:</strong>
+            <ul>
+                <li>Iterating through lists using <code>for</code> loops.</li>
+                <li>Conditional filtering with <code>if</code> statements.</li>
+                <li>The difference between local and global variables.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</body>
+</html>
