@@ -47,6 +47,19 @@
             transform: translateY(-5px);
         }
 
+        /* This makes the white Gist box fit nicely inside dark card */
+            .gist {
+                max-height: 250px; /* Limits the height so it doesn't take over the page */
+                overflow-y: auto;  /* Adds a scrollbar if the code is too long */
+                border-radius: 8px;
+                margin: 15px 0;
+            }
+            
+            /* This helps the Gist scale down for mobile screens */
+            .gist .gist-file {
+                border: none !important;
+            }
+
         .tag {
             background: #0ea5e9;
             color: white;
@@ -87,12 +100,18 @@
     </div>
 
 
-    <div class="project-card">
-    <span class="tag" style="background: #22c55e;">Python</span>
-    <h3>Safe Calculator Logic</h3>
-    <p>A deep dive into exception handling and function design.</p>
-    <script src="https://gist.github.com/montahabouezzed-sys/a47e70348411a5e390baab7cbab7353b.js"></script>
-    <a href="python-lab.html" style="color: var(--accent); text-decoration: none; font-weight: bold;">View Python Lab →</a>
+     <div class="project-card">
+        <span class="tag" style="background: #22c55e;">PYTHON</span>
+        <h3>Safe Calculator Logic</h3>
+        <p>A deep dive into exception handling and function design.</p>
+        
+        <div class="gist-wrapper">
+            <script src="https://gist.github.com/montahabouezzed-sys/a47e70348411a5e390baab7cbab7353b.js"></script>
+        </div>
+    
+        <a href="python-lab.html" style="color: var(--accent); text-decoration: none; font-weight: bold; display: block; margin-top: 10px;">
+            View Python Lab →
+        </a>
     </div>
 
     <section style="margin-top: 50px; border-top: 1px solid #334155; padding-top: 20px; width: 100%; max-width: 1000px;">
