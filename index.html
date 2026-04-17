@@ -1,58 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Dev Journey</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Portfolio | My Journey</title>
     <style>
-        /* This is where you practice your CSS */
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --accent: #38bdf8;
+        }
+
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f4f7f6; /* Try changing this hex code! */
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 50px;
         }
 
-        .container {
-            display: flex;
+        .header { text-align: center; margin-bottom: 50px; }
+        .header h1 { color: var(--accent); font-size: 2.5rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
+            max-width: 1000px;
+            width: 100%;
         }
 
-        .card {
-            background: white;
+        .project-card {
+            background: var(--card-bg);
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 250px;
-            transition: transform 0.2s;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-5px); /* This adds a little 'lift' effect */
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
         }
 
-        h1 { color: #333; }
-        h3 { color: #2c3e50; margin-top: 0; }
+        .tag {
+            background: #0ea5e9;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Software Development Training</h1>
-    <p>Applying concepts I've learned through hands-on practice.</p>
+    <div class="header">
+        <h1>My Coding Lab</h1>
+        <p>Applying concepts from my Software Development Training</p>
+    </div>
 
-    <div class="container">
-        <div class="card">
-            <h3>Concept 01</h3>
-            <p>Description of a logic or language concept mastered here.</p>
+    <div class="grid">
+        <div class="project-card">
+            <span class="tag">Logic Practice</span>
+            <h3>Algorithm: Array Sorting</h3>
+            <p>Created a script that organizes data points based on specific criteria. Focused on efficiency and clean loops.</p>
+            <code style="color: #94a3b8;">Status: Completed</code>
         </div>
 
-        <div class="card">
-            <h3>Concept 02</h3>
-            <p>Another training milestone goes here.</p>
+        <div class="project-card">
+            <span class="tag">UI/UX</span>
+            <h3>Responsive Grid Layout</h3>
+            <p>This very page! Practicing CSS Grid and Flexbox to create a layout that works on mobile and desktop.</p>
+            <code style="color: #94a3b8;">Status: In Progress</code>
         </div>
     </div>
 
+
+    <section style="margin-top: 50px; border-top: 1px solid #334155; padding-top: 20px; width: 100%; max-width: 1000px;">
+    <h2>Current Training Modules</h2>
+    <ul>
+        <li>Completed: HTML Structure & Tags</li>
+        <li>In Progress: CSS Layouts (Flexbox/Grid)</li>
+        <li>Next Up: JavaScript Logic & Variables</li>
+    </ul>
+    </section>
 </body>
 </html>
