@@ -23,9 +23,32 @@
         <h1>Python Practice: Logic & Error Handling</h1>
         <p>In this project, I focused on making a calculator "safe" by handling potential user errors like dividing by zero.</p>
         
-        <div class="gist-container">
-            </div>
-        
+       <style>
+    /* Add this to your style section for a beautiful code box */
+    .code-box {
+        background: #1e293b;
+        border: 1px solid #334155;
+        color: #e2e8f0;
+        padding: 20px;
+        border-radius: 8px;
+        font-family: 'Courier New', monospace;
+        line-height: 1.5;
+        overflow-x: auto; /* scroll if code is too wide */
+        white-space: pre;  /* keeps your Python indentation */
+    }
+    .keyword { color: #f472b6; } /* Pink for def/try/except */
+    .string { color: #4ade80; }  /* Green for messages */
+</style>
+
+<div class="code-box">
+<span class="keyword">def</span> safe_divide(dividend, divisor):
+    <span class="string">"""Divides two numbers and handles errors."""</span>
+    <span class="keyword">try</span>:
+        result = dividend / divisor
+        <span class="keyword">return</span> result
+    <span class="keyword">except</span> ZeroDivisionError:
+        <span class="keyword">return</span> <span class="string">"Error: Division by zero is not allowed."</span>
+</div>
         <div style="margin-top: 40px;">
             <h3>Key Takeaways:</h3>
             <ul>
