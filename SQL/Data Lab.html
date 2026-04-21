@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Lab | Vehicle Sensor Analysis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        :root { --bg: #0f172a; --text: #f8fafc; --accent: #38bdf8; } /* Light blue accent for SQL */
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; padding: 40px; }
+        .container { max-width: 900px; margin: auto; }
+        .back-link { color: var(--accent); text-decoration: none; margin-bottom: 20px; display: block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Home</a>
+        <h1>Vehicle Sensor Analysis (SQL + Python)</h1>
+        
+        <p>This lab demonstrates how I used DuckDB to manage large-scale vehicle sensor data and Python to visualize performance trends.</p>
+
+        <h3>Data Extraction Query</h3>
+        <pre><code class="language-sql">
+SELECT timestamp, sensor_type, value
+FROM vehicle_readings
+WHERE sensor_type = 'temperature'
+ORDER BY timestamp ASC;
+        </code></pre>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    </div>
+</body>
+</html>
