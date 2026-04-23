@@ -84,7 +84,12 @@ df['moving_avg'] = df.groupby('sensor_type')['value'].transform(lambda x: x.roll
 
     <section>
         <h3>3. Final Visualization</h3>
-        <p>Below is a plot showing the filtered sensor data over a 30-day period.</p>
+        <p>
+        <strong>Optimization Note:</strong> To handle the high-density temporal data, 
+        I refined the visualization layer by implementing label rotation and grid alignment. 
+        This ensures that trends in vehicle temperature and vibration remain legible 
+        even across extended polling periods.
+        </p>
        <img src="https://raw.githubusercontent.com/montahabouezzed-sys/process-data-sql-lab/main/plots/dashboard_sensors.png" 
         class="analysis-plot" 
          alt="Sensors Data">
