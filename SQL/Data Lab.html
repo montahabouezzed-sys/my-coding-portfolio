@@ -17,6 +17,21 @@
             transform: scale(1.02); /* Slight zoom when hovering */
             border-color: var(--accent);
             }
+        /* This ensures the image has room to grow without overlapping text */
+        .analysis-plot {
+            transition: transform 0.3s ease;
+            cursor: zoom-in;
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .analysis-plot:hover {
+            transform: scale(1.05); /* Grows by 5% */
+            z-index: 10;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body>
@@ -67,8 +82,9 @@ df['moving_avg'] = df.groupby('sensor_type')['value'].transform(lambda x: x.roll
         <h3>3. Final Visualization</h3>
         <p>Below is a plot showing the filtered sensor data over a 30-day period.</p>
        <img src="https://raw.githubusercontent.com/montahabouezzed-sys/process-data-sql-lab/main/plots/dashboard_sensors.png" 
-     alt="Sensor Analysis Chart" 
-     style="width:100%; border-radius: 8px; border: 1px solid #334155;">
+        onclick="toggleZoom(this)" 
+         style="transition: transform 0.3s ease; cursor: zoom-in; width: 100%; border-radius: 8px;" 
+         alt="Final Visualization">
     </section>
 </div>
 </body>
