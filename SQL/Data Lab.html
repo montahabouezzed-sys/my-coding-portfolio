@@ -17,20 +17,24 @@
             transform: scale(1.02); /* Slight zoom when hovering */
             border-color: var(--accent);
             }
-        /* This ensures the image has room to grow without overlapping text */
-        .analysis-plot {
-            transition: transform 0.3s ease;
-            cursor: zoom-in;
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-        }
-        
-        .analysis-plot:hover {
-            transform: scale(1.05); /* Grows by 5% */
-            z-index: 10;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+             /* 1. Define the base state of the image */
+            .analysis-plot {
+                transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smoother movement */
+                cursor: zoom-in !important;
+                display: block;
+                margin: 30px auto;
+                max-width: 100%;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+                }
+            
+            /* 2. Define exactly what happens when the mouse touches it */
+            .analysis-plot:hover {
+                transform: scale(1.08) !important; /* Forces the zoom */
+                box-shadow: 0 20px 40px rgba(0,0,0,0.6) !important;
+                z-index: 999; /* Makes sure it stays on top of text */
+                position: relative;
+                }
         }
     </style>
 </head>
@@ -81,10 +85,10 @@ df['moving_avg'] = df.groupby('sensor_type')['value'].transform(lambda x: x.roll
     <section>
         <h3>3. Final Visualization</h3>
         <p>Below is a plot showing the filtered sensor data over a 30-day period.</p>
+        <img src="https://raw.githubusercontent.com/..." 
        <img src="https://raw.githubusercontent.com/montahabouezzed-sys/process-data-sql-lab/main/plots/dashboard_sensors.png" 
-        onclick="toggleZoom(this)" 
-         style="transition: transform 0.3s ease; cursor: zoom-in; width: 100%; border-radius: 8px;" 
-         alt="Final Visualization">
+        class="analysis-plot" 
+         alt="Sensors Data">
     </section>
 </div>
 </body>
