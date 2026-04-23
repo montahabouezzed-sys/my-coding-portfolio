@@ -9,6 +9,14 @@
         body { background: var(--bg); color: var(--text); font-family: sans-serif; padding: 40px; }
         .container { max-width: 900px; margin: auto; }
         .back-link { color: var(--accent); text-decoration: none; margin-bottom: 20px; display: block; }
+        img {
+        transition: transform 0.3s ease;
+        cursor: zoom-in;
+            }
+        img:hover {
+            transform: scale(1.02); /* Slight zoom when hovering */
+            border-color: var(--accent);
+            }
     </style>
 </head>
 <body>
@@ -28,14 +36,14 @@
         <h3>1. Database Schema & Modeling</h3>
         <p>The database is structured to handle high-frequency sensor logs. Below is the primary table definition used for storage:</p>
         <pre><code class="language-sql">
-CREATE TABLE sensor_readings (
-    reading_id INTEGER PRIMARY KEY,
-    test_run_id INTEGER,
-    timestamp DATETIME,
-    sensor_type TEXT,
-    value REAL,
-    FOREIGN KEY (test_run_id) REFERENCES test_runs(test_run_id)
-);
+            CREATE TABLE sensor_readings (
+            reading_id INTEGER PRIMARY KEY,
+            test_run_id INTEGER,
+            timestamp DATETIME,
+            sensor_type TEXT,
+            value REAL,
+            FOREIGN KEY (test_run_id) REFERENCES test_runs(test_run_id)
+        );
         </code></pre>
     </section>
 
