@@ -28,11 +28,13 @@
         <h3>1. Database Schema & Modeling</h3>
         <p>The database is structured to handle high-frequency sensor logs. Below is the primary table definition used for storage:</p>
         <pre><code class="language-sql">
-CREATE TABLE vehicle_readings (
-    timestamp TIMESTAMP,
-    sensor_type VARCHAR,
-    value FLOAT,
-    unit VARCHAR
+CREATE TABLE sensor_readings (
+    reading_id INTEGER PRIMARY KEY,
+    test_run_id INTEGER,
+    timestamp DATETIME,
+    sensor_type TEXT,
+    value REAL,
+    FOREIGN KEY (test_run_id) REFERENCES test_runs(test_run_id)
 );
         </code></pre>
     </section>
@@ -46,7 +48,7 @@ import pandas as pd
 
 # Query data into a DataFrame
 con = duckdb.connect('../automotive.duckdb')
-df = con.sql("SELECT * FROM vehicle_readings").df()
+df = con.sql("SELECT * FROM sensor_readings").df()
 
 # Calculate moving average
 df['moving_avg'] = df.groupby('sensor_type')['value'].transform(lambda x: x.rolling(window=5).mean())
@@ -56,8 +58,7 @@ df['moving_avg'] = df.groupby('sensor_type')['value'].transform(lambda x: x.roll
     <section>
         <h3>3. Final Visualization</h3>
         <p>Below is a plot showing the filtered sensor data over a 30-day period.</p>
-        <img src="../plots/sensor_trends.png" alt="Sensor Trends Chart" style="width:100%; border: 1px solid #334155; border-radius: 8px;">
-    </section>
+        <img src="plots/dashboard_sensors.png" alt="Sensor Trends" style="width:100%; border-radius:8px;">    </section>
 </div>
 </body>
 </html>
