@@ -2,17 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Python Lab | My Journey</title>
+    <title>Python Lab | Safe Calculator</title>
+
     <style>
-        :root { --bg: #0f172a; --card-bg: #1e293b; --text: #f8fafc; --accent: #22c55e; } /* Using Green for Python */
-        body { background: var(--bg); color: var(--text); font-family: sans-serif; padding: 40px; }
-        .nav { margin-bottom: 20px; }
-        .nav a { color: var(--accent); text-decoration: none; font-weight: bold; }
-        .lab-container { max-width: 800px; margin: auto; }
-        .gist-container { margin-top: 30px; background: white; border-radius: 8px; padding: 10px; }
-        h1 { color: var(--accent); }
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --accent: #22c55e;
+            --muted: #94a3b8;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            padding: 40px;
+            animation: fadeIn 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .lab-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h1 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--muted);
+        }
+
+        /* Code box styling */
+        .code-box {
+            background: var(--card-bg);
+            border: 1px solid #334155;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre;
+            margin-top: 20px;
+        }
+
+        .keyword { color: #f472b6; }
+        .string { color: #4ade80; }
+
+        /* Calculator styling */
+        .calculator {
+            background: var(--card-bg);
+            border: 1px solid #334155;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        #calc-display {
+            width: 100%;
+            padding: 12px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            color: var(--text);
+            font-size: 1.3rem;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .calc-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .calc-buttons button {
+            padding: 14px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: var(--text);
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .calc-buttons button:hover {
+            background: var(--accent);
+            color: #000;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
+
 <body>
 
     <div class="nav">
@@ -20,27 +117,11 @@
     </div>
 
     <div class="lab-container">
-        <h1>Python Practice: Logic & Error Handling</h1>
-        <p>In this project, I focused on making a calculator "safe" by handling potential user errors like dividing by zero.</p>
-        
-       <style>
-    /* Add this to your style section for a beautiful code box */
-    .code-box {
-        background: #1e293b;
-        border: 1px solid #334155;
-        color: #e2e8f0;
-        padding: 20px;
-        border-radius: 8px;
-        font-family: 'Courier New', monospace;
-        line-height: 1.5;
-        overflow-x: auto; /* scroll if code is too wide */
-        white-space: pre;  /* keeps your Python indentation */
-    }
-    .keyword { color: #f472b6; } /* Pink for def/try/except */
-    .string { color: #4ade80; }  /* Green for messages */
-</style>
+        <h1>Python Practice: Safe Calculator</h1>
+        <p>This project focuses on building a calculator that gracefully handles errors such as division by zero.</p>
 
-<div class="code-box">
+        <!-- PYTHON CODE BOX -->
+        <div class="code-box">
 <span class="keyword">def</span> safe_divide(dividend, divisor):
     <span class="string">"""Divides two numbers and handles errors."""</span>
     <span class="keyword">try</span>:
@@ -48,31 +129,60 @@
         <span class="keyword">return</span> result
     <span class="keyword">except</span> ZeroDivisionError:
         <span class="keyword">return</span> <span class="string">"Error: Division by zero is not allowed."</span>
-</div>
-        <div style="margin-top: 40px;">
-            <h3>Key Takeaways:</h3>
-            <ul>
-                <li>Used <code>try/except</code> to prevent runtime crashes.</li>
-                <li>Practiced <code>TypeError</code> handling for mixed data inputs.</li>
-                <li>Organized code into a reusable function (<code>safe_divide</code>).</li>
-            </ul>
         </div>
+
+        <h3 style="margin-top: 30px;">Key Takeaways</h3>
+        <ul>
+            <li>Used <code>try/except</code> to prevent runtime crashes.</li>
+            <li>Handled <code>ZeroDivisionError</code> safely.</li>
+            <li>Designed a reusable function for safe arithmetic.</li>
+        </ul>
+
+        <!-- INTERACTIVE CALCULATOR -->
+        <div class="calculator">
+            <h3 style="color: var(--accent); margin-bottom: 10px;">Try the Calculator</h3>
+
+            <input id="calc-display" type="text" readonly>
+
+            <div class="calc-buttons">
+                <button onclick="press('7')">7</button>
+                <button onclick="press('8')">8</button>
+                <button onclick="press('9')">9</button>
+                <button onclick="press('/')">÷</button>
+
+                <button onclick="press('4')">4</button>
+                <button onclick="press('5')">5</button>
+                <button onclick="press('6')">6</button>
+                <button onclick="press('*')">×</button>
+
+                <button onclick="press('1')">1</button>
+                <button onclick="press('2')">2</button>
+                <button onclick="press('3')">3</button>
+                <button onclick="press('-')">−</button>
+
+                <button onclick="press('0')">0</button>
+                <button onclick="press('.')">.</button>
+                <button onclick="calculate()">=</button>
+                <button onclick="press('+')">+</button>
+            </div>
+        </div>
+
     </div>
 
-</body>
     <script>
-    function press(value) {
-        document.getElementById("calc-display").value += value;
-    }
-
-    function calculate() {
-        try {
-            const result = eval(document.getElementById("calc-display").value);
-            document.getElementById("calc-display").value = result;
-        } catch {
-            document.getElementById("calc-display").value = "Error";
+        function press(value) {
+            document.getElementById("calc-display").value += value;
         }
-    }
-</script>
 
+        function calculate() {
+            try {
+                const result = eval(document.getElementById("calc-display").value);
+                document.getElementById("calc-display").value = result;
+            } catch {
+                document.getElementById("calc-display").value = "Error";
+            }
+        }
+    </script>
+
+</body>
 </html>
