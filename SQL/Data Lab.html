@@ -3,72 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <title>SQL Lab | Vehicle Sensor Analysis</title>
+
+    <!-- Prism Syntax Highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+
     <style>
-        :root { --bg: #0f172a; --text: #f8fafc; --accent: #38bdf8; } /* Light blue accent for SQL */
-        body { background: var(--bg); color: var(--text); font-family: sans-serif; padding: 40px; }
-        .container { max-width: 900px; margin: auto; }
-        .back-link { color: var(--accent); text-decoration: none; margin-bottom: 20px; display: block; }
-        img {
-        transition: transform 0.3s ease;
-        cursor: zoom-in;
-            }
-        img:hover {
-            transform: scale(1.02); /* Slight zoom when hovering */
-            border-color: var(--accent);
-            }
-             /* 1. Define the base state of the image */
-            .analysis-plot {
-                transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smoother movement */
-                cursor: zoom-in !important;
-                display: block;
-                margin: 30px auto;
-                max-width: 100%;
-                border-radius: 8px;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-                }
-            
-            /* 2. Define exactly what happens when the mouse touches it */
-            .analysis-plot:hover {
-                transform: scale(1.08) !important; /* Forces the zoom */
-                box-shadow: 0 20px 40px rgba(0,0,0,0.6) !important;
-                z-index: 999; /* Makes sure it stays on top of text */
-                position: relative;
-                }
+        :root {
+            --bg: #0f172a;
+            --text: #f8fafc;
+            --accent: #38bdf8;
+            --card-bg: #1e293b;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, sans-serif;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .back-link {
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            margin-top: 40px;
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            background: var(--accent);
+            color: #000;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: 0.2s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        /* Image Hover Zoom */
+        .analysis-plot {
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: zoom-in;
+            display: block;
+            margin: 30px auto;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .analysis-plot:hover {
+            transform: scale(1.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            z-index: 999;
+            position: relative;
+        }
+
+        /* Code blocks */
+        pre {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
         }
     </style>
 </head>
+
 <body>
 <div class="container">
-    <a href="../index.html" class="back-link">← Back to Home</a>
-    <h1>Vehicle Sensor Analysis (SQL + Python)</h1>
-    
-    <section>
-        <h3>Project Overview</h3>
-        <p>This project demonstrates a complete data pipeline. I modeled an automotive database in <strong>DuckDB</strong>, processed sensor readings with <strong>Python</strong>, and generated time-series visualizations to identify vehicle anomalies.</p>
-        <a href="https://github.com/montahabouezzed-sys/process-data-sql-lab" target="_blank" style="display: inline-block; padding: 10px 20px; background: var(--accent); color: #000; border-radius: 5px; text-decoration: none; font-weight: bold; margin-bottom: 30px;">
-            🚀 View Full GitHub Repository
-        </a>
-    </section>
 
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <h1>Vehicle Sensor Analysis (SQL + Python)</h1>
+    <p style="max-width: 750px;">
+        A complete data pipeline for modeling, querying, and analyzing automotive sensor data.
+        This project simulates a realistic engineering workflow used in vehicle testing,
+        anomaly detection, and sensor reliability analysis.
+    </p>
+
+    <a href="https://github.com/montahabouezzed-sys/process-data-sql-lab" target="_blank" class="btn">
+        🚀 View Full GitHub Repository
+    </a>
+
+    <!-- SECTION 1 -->
     <section>
         <h3>1. Database Schema & Modeling</h3>
-        <p>The database is structured to handle high-frequency sensor logs. Below is the primary table definition used for storage:</p>
+        <p>
+            The relational schema is designed to handle high‑frequency sensor logs from multiple
+            vehicle test runs. Below is the core table used for storing timestamped sensor values:
+        </p>
+
         <pre><code class="language-sql">
-            CREATE TABLE sensor_readings (
-            reading_id INTEGER PRIMARY KEY,
-            test_run_id INTEGER,
-            timestamp DATETIME,
-            sensor_type TEXT,
-            value REAL,
-            FOREIGN KEY (test_run_id) REFERENCES test_runs(test_run_id)
-        );
+CREATE TABLE sensor_readings (
+    reading_id INTEGER PRIMARY KEY,
+    test_run_id INTEGER,
+    timestamp DATETIME,
+    sensor_type TEXT,
+    value REAL,
+    FOREIGN KEY (test_run_id) REFERENCES test_runs(test_run_id)
+);
         </code></pre>
+
+        <p>
+            This structure supports time‑series analysis, anomaly detection, and efficient querying
+            using <strong>DuckDB</strong>.
+        </p>
     </section>
 
+    <!-- SECTION 2 -->
     <section>
         <h3>2. Data Analysis with Python</h3>
-        <p>Using <strong>Pandas</strong> and <strong>DuckDB</strong>, I extracted the raw data and applied a rolling average to smooth out sensor noise.</p>
+        <p>
+            Using <strong>Pandas</strong> and <strong>DuckDB</strong>, I extracted raw sensor logs,
+            grouped them by sensor type, and applied rolling statistics to smooth noise and detect
+            abnormal behavior.
+        </p>
+
         <pre><code class="language-python">
 import duckdb
 import pandas as pd
@@ -77,26 +149,32 @@ import pandas as pd
 con = duckdb.connect('../automotive.duckdb')
 df = con.sql("SELECT * FROM sensor_readings").df()
 
-# Calculate moving average
-df['moving_avg'] = df.groupby('sensor_type')['value'].transform(lambda x: x.rolling(window=5).mean())
+# Calculate moving average per sensor type
+df['moving_avg'] = (
+    df.groupby('sensor_type')['value']
+      .transform(lambda x: x.rolling(window=5).mean())
+)
         </code></pre>
     </section>
 
+    <!-- SECTION 3 -->
     <section>
         <h3>3. Final Visualization</h3>
         <p>
-        <strong>Optimization Note:</strong> To handle the high-density temporal data, 
-        I refined the visualization layer by implementing label rotation and grid alignment. 
-        This ensures that trends in vehicle temperature and vibration remain legible 
-        even across extended polling periods.
+            To keep high‑density time‑series plots readable, I optimized the visualization layer
+            with grid alignment, label rotation, and anomaly highlighting. This makes long-duration
+            test runs easier to interpret.
         </p>
-       <img src="https://raw.githubusercontent.com/montahabouezzed-sys/process-data-sql-lab/main/plots/dashboard_sensors.png" 
-        class="analysis-plot" 
-         alt="Sensors Data">
+
+        <img src="https://raw.githubusercontent.com/montahabouezzed-sys/process-data-sql-lab/main/plots/dashboard_sensors.png"
+             class="analysis-plot"
+             alt="Sensor Data Visualization">
     </section>
-            <a href="https://github.com/montahabouezzed-sys/process-data-sql-lab" target="_blank" style="display: inline-block; padding: 10px 20px; background: var(--accent); color: #000; border-radius: 5px; text-decoration: none; font-weight: bold; margin-bottom: 30px;">
-                🚀 View Full GitHub Repository
-        </a>
+
+    <a href="https://github.com/montahabouezzed-sys/process-data-sql-lab" target="_blank" class="btn">
+        🚀 View Full GitHub Repository
+    </a>
+
 </div>
 </body>
 </html>
