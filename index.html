@@ -1,163 +1,123 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Portfolio | My Journey</title>
+    <title>Dev Portfolio | My Coding Lab</title>
+
     <style>
-      :root {
-        --bg: #0f172a;
-        --card-bg: #1e293b;
-        --text: #f8fafc;
-        --accent: #38bdf8;
-      }
-  
-      body {
-        background-color: var(--bg);
-        color: var(--text);
-        font-family: 'Inter', sans-serif;
-        margin: 0;
-        padding: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-  
-      .header { text-align: center; margin-bottom: 50px; }
-      .header h1 { color: var(--accent); font-size: 2.5rem; }
-  
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        max-width: 1000px;
-        width: 100%;
-      }
-  
-      .project-card {
-        background: var(--card-bg);
-        padding: 20px;
-        border-radius: 12px;
-        border: 1px solid #334155;
-        transition: 0.3s;
-      }
-  
-      .project-card:hover {
-        border-color: var(--accent);
-        transform: translateY(-5px);
-      }
-  
-      /* This makes the white Gist box fit nicely inside dark card */
-      .gist {
-        max-height: 250px; /* Limits the height so it doesn't take over the page */
-        overflow-y: auto;  /* Adds a scrollbar if the code is too long */
-        border-radius: 8px;
-        margin: 15px 0;
-      }
-  
-      /* This helps the Gist scale down for mobile screens */
-      .gist .gist-file {
-        border: none !important;
-      }
-  
-      .tag {
-        background: #0ea5e9;
-        color: white;
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-      }
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --accent: #38bdf8;
+            --muted: #94a3b8;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--muted);
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* PROJECT CARDS */
+        .project-card {
+            background: var(--card-bg);
+            padding: 22px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: 0.25s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-6px);
+        }
+
+        .tag {
+            background: var(--accent);
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .code-box {
+            background: #000;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 12px;
+            margin: 15px 0;
+            border: 1px solid #334155;
+            white-space: pre-wrap;
+        }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 12px;
+        }
+
+        /* TRAINING MODULES */
+        .modules {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .modules h2 {
+            margin-bottom: 10px;
+        }
+
+        .modules ul {
+            color: var(--muted);
+            line-height: 1.8;
+        }
     </style>
-  </head>
-  <body>
-  
-  <div class="header">
-    <h1>My Coding Lab</h1>
-    <p>Applying concepts from my Software Development Training</p>
-  </div>
-  
-  <div class="grid">
-    <div class="project-card">
-      <span class="tag">Logic Practice</span>
-      <h3>Algorithm: Array Sorting</h3>
-      <p>Created a script that organizes data points based on specific criteria. Focused on efficiency and clean loops.</p>
-      <code style="color: #94a3b8;">Status: Completed</code>
-    </div>
-  
-    <div class="project-card">
-      <span class="tag">UI/UX</span>
-      <h3>Responsive Grid Layout</h3>
-  
-      <p id="project-desc">This very page! Practicing CSS Grid and Flexbox to create a layout that works on mobile and desktop.</p>
-  
-      <code style="color: #94a3b8;">Status: In Progress</code>
-  
-      <br><br>
-      <button onclick="toggleDetails()" style="background: var(--accent); border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: bold;">
-        Show/Hide Details
-      </button>
-    </div>
-  
-  
-    <div class="project-card">
-      <span class="tag" style="background: #22c55e;">PYTHON</span>
-      <h3>Safe Calculator Logic</h3>
-      <p>A deep dive into exception handling and function design.</p>
-  
-      <div style="background: #000; padding: 10px; border-radius: 6px; font-family: monospace; font-size: 12px; margin: 15px 0; border: 1px solid #334155;">
-        <div style="color: #4ade80;">def</div> <div style="color: #f8fafc; display: inline;">safe_divide():</div><br>
-        <div style="color: #94a3b8; margin-left: 10px;"># Logic hidden...</div><br>
-        <div style="color: #4ade80; margin-left: 10px;">return</div> <div style="color: #f8fafc; display: inline;">result</div>
-      </div>
-  
-      <a href="python-lab.html" style="color: var(--accent); text-decoration: none; font-weight: bold; display: block; margin-top: 10px;">
-        View Python Lab →
-      </a>
-    </div>
-  
-    <div class="project-card">
-      <span class="tag" style="background: #22c55e;">PYTHON 02</span>
-      <h3>Advanced Data Processing</h3>
-      <p>Using loops and lists to handle multiple data points efficiently.</p>
-  
-      <div style="background: #000; padding: 10px; border-radius: 6px; font-family: monospace; font-size: 11px; margin: 15px 0; border: 1px solid #334155;">
-        <div style="color: #f472b6;">for</div> <div style="color: #f8fafc; display: inline;">item in data:</div><br>
-        <div style="color: #38bdf8; margin-left: 10px;">process_item(item)</div>
-      </div>
-  
-      <a href="python-lab-2.html" style="color: var(--accent); text-decoration: none; font-weight: bold; display: block; margin-top: 10px;">
-        View Data Lab →
-      </a>
-    </div>
+</head>
 
+<body>
 
-      <div class="project-card">
-      <span class="tag" style="background: #22c55e;">PYTHON 03</span>
-      <h3> Combined SQL Analysis with Python </h3>
-      <p>Using Python to analse a SQL Database using DuckDB, matplotlib and pandas.</p>
-  
-      <div style="background: #000; padding: 10px; border-radius: 6px; font-family: monospace; font-size: 11px; margin: 15px 0; border: 1px solid #334155;">
-        <div style="color: #f472b6;">for</div> <div style="color: #f8fafc; display: inline;">item in data:</div><br>
-        <div style="color: #38bdf8; margin-left: 10px;">process_item(item)</div>
-      </div>
-  
-      <a href="SQL/Data Lab.html" style="color: var(--accent); text-decoration: none; font-weight: bold; display: block; margin-top: 10px;">
-    View Data Lab →
-    </a>
-    </div>
-  
-    <section style="margin-top: 50px; border-top: 1px solid #334155; padding-top: 20px; width: 100%; max-width: 1000px;">
-      <h2>Current Training Modules</h2>
-      <ul>
-        <li>Completed: HTML Structure & Tags</li>
-        <li>In Progress: CSS Layouts (Flexbox/Grid)</li>
-        <li>Next Up: JavaScript Logic & Variables</li>
-      </ul>
-    </section>
-  
-  
-  
-  
-  </body>
-  </html>
+    <!-- HERO -->
+    <div class="hero">
+        <h1>My Coding Lab</h1>
+        <p>A growing collection
