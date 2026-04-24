@@ -60,4 +60,19 @@
     </div>
 
 </body>
+    <script>
+    function press(value) {
+        document.getElementById("calc-display").value += value;
+    }
+
+    function calculate() {
+        try {
+            const result = eval(document.getElementById("calc-display").value);
+            document.getElementById("calc-display").value = result;
+        } catch {
+            document.getElementById("calc-display").value = "Error";
+        }
+    }
+</script>
+
 </html>
