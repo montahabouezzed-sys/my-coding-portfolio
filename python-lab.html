@@ -107,6 +107,18 @@
             color: #000;
             transform: translateY(-2px);
         }
+                
+        .calc-buttons button:last-child {
+                font-weight: bold;
+                color: white;
+                transition: 0.2s ease;
+            }
+            
+        .calc-buttons button:last-child:hover {
+                background: #f87171 !important;
+                transform: translateY(-2px);
+            }
+
     </style>
 </head>
 
@@ -164,24 +176,53 @@
                 <button onclick="press('.')">.</button>
                 <button onclick="calculate()">=</button>
                 <button onclick="press('+')">+</button>
+                <!-- NEW CLEAR BUTTON -->
+                 <button onclick="clearDisplay()" style="grid-column: span 4; background:#ef4444;">
+                    C (Clear)
+                 </button>
             </div>
         </div>
 
     </div>
 
     <script>
-        function press(value) {
-            document.getElementById("calc-display").value += value;
-        }
-
-        function calculate() {
-            try {
-                const result = eval(document.getElementById("calc-display").value);
-                document.getElementById("calc-display").value = result;
-            } catch {
-                document.getElementById("calc-display").value = "Error";
+        <script>
+            function press(value) {
+            const display = document.getElementById("calc-display");
+            display.value += value;
             }
-        }
+    
+            function clearDisplay() {
+                document.getElementById("calc-display").value = "";
+            }
+    
+            function calculate() {
+                const display = document.getElementById("calc-display");
+                const expression = display.value;
+    
+            try {
+                // Detect division
+                if (expression.includes("/")) {
+                    const parts = expression.split("/");
+                    const left = parseFloat(parts[0]);
+                    const right = parseFloat(parts[1]);
+    
+                    if (right === 0) {
+                        display.value = "Error: Division by zero";
+                        return;
+                    }
+                }
+    
+                // Safe evaluation (no eval)
+                const result = Function('"use strict"; return (' + expression + ')')();
+                display.value = result;
+    
+            } catch {
+                display.value = "Invalid Expression";
+            }
+            }
+        </script>
+
     </script>
 
 </body>
