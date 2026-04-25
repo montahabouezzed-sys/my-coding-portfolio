@@ -13,15 +13,6 @@
             --muted: #94a3b8;
         }
 
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            padding: 40px;
-            animation: fadeIn 0.8s ease forwards;
-            opacity: 0;
-        }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -59,6 +50,15 @@
             overflow-x: auto;
             white-space: pre;
             margin-top: 20px;
+        }
+
+        body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Inter', sans-serif;
+        padding: 40px;
+        animation: fadeIn 0.8s ease forwards;
+        opacity: 0;
         }
 
         .keyword { color: #f472b6; }
@@ -186,7 +186,6 @@
     </div>
 
     <script>
-        <script>
             function press(value) {
             const display = document.getElementById("calc-display");
             display.value += value;
@@ -221,7 +220,6 @@
                 display.value = "Invalid Expression";
             }
             }
-        </script>
 
     </script>
 
