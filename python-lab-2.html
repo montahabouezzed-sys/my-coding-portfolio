@@ -46,26 +46,20 @@
         </div>
     </div>
 
-
-
-
-    
-        <div class="container">
-            <h1>Efficient Data Grouping</h1>
-            <p>I used a dictionary to categorize flat data into logical groups. This reduces the complexity of searching through the data and prepares it for statistical analysis (like calculating mean temperature).</p>
-    
-                <pre><code class="language-python">
-                        # Raw data: A list of dictionaries (common in API results)
-                        sensor_data = [
+    <div class="container">
+        <h1>Efficient Data Grouping</h1>
+        <p>I used a dictionary to categorize flat data into logical groups. This reduces the complexity of searching through the data and prepares it for statistical analysis (like calculating mean temperature).</p>
+            <pre><code class="language-python">
+                # Raw data: A list of dictionaries (common in API results)
+                    sensor_data = [
                             {"id": "SN-001", "type": "Temp", "value": 22.5},
                             {"id": "SN-002", "type": "Vibration", "value": 0.5},
                             {"id": "SN-003", "type": "Temp", "value": 23.0},
                             {"id": "SN-004", "type": "Pressure", "value": 101.3}
                         ]
                         
-                        # Dictionary Manipulation: Grouping values by their type
+                # Dictionary Manipulation: Grouping values by their type
                         analysis = {}
-                        
                         for record in sensor_data:
                             s_type = record["type"]
                             val = record["value"]
@@ -79,15 +73,15 @@
                         # Output: {'Temp': [22.5, 23.0], 'Vibration': [0.5], 'Pressure': [101.3]}
                     </code></pre>
             
-            <div style="background: #1e293b; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent);">
-                <strong>What I learned:</strong>
-                <ul>
-                    <li>Iterating through lists using <code>for</code> loops.</li>
-                    <li>Conditional filtering with <code>if</code> statements.</li>
-                    <li>The difference between local and global variables.</li>
-                </ul>
-            </div>
+        <div style="background: #1e293b; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent);">
+        <strong>What I learned:</strong>
+            <ul>
+                <li>Structuring information with "keys" and "value through lists using <code>for</code> loops.</li>
+                <li>Categorizing flat data into logical groups for easier processing and calculation afterwards.</li>
+            </ul>
         </div>
+    
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 
