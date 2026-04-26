@@ -21,20 +21,19 @@
     <div class="container">
         <h1>Advanced Data Processing</h1>
         <p>In this project, I used Python to filter a list of numbers, keeping only the ones that meet specific criteria. This is a fundamental concept in data science and backend logic.</p>
-
-        <pre><code class="language-python">
-            # A script to filter high-value transactions
-            transactions = [10.50, 100.00, 5.25, 500.0, 12.00]
-            high_value = []
+<pre><code class="language-python">
+# A script to filter high-value transactions
+transactions = [10.50, 100.00, 5.25, 500.0, 12.00]
+    high_value = []
             
-            def filter_data(data_list):
-                for item in data_list:
-                    if item > 50:
-                        high_value.append(item)
-                return high_value
-            
-            print(f"High value items: {filter_data(transactions)}")
-        </code></pre>
+    def filter_data(data_list):
+        for item in data_list:
+            if item > 50:
+                high_value.append(item)
+            return high_value
+    
+        print(f"High value items: {filter_data(transactions)}")
+</code></pre>
 
         <div style="background: #1e293b; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent);">
             <strong>What I learned:</strong>
@@ -49,29 +48,30 @@
     <div class="container">
         <h1>Efficient Data Grouping</h1>
         <p>I used a dictionary to categorize flat data into logical groups. This reduces the complexity of searching through the data and prepares it for statistical analysis (like calculating mean temperature).</p>
-            <pre><code class="language-python">
-                # Raw data: A list of dictionaries (common in API results)
-                    sensor_data = [
-                            {"id": "SN-001", "type": "Temp", "value": 22.5},
-                            {"id": "SN-002", "type": "Vibration", "value": 0.5},
-                            {"id": "SN-003", "type": "Temp", "value": 23.0},
-                            {"id": "SN-004", "type": "Pressure", "value": 101.3}
-                        ]
-                        
-                # Dictionary Manipulation: Grouping values by their type
-                        analysis = {}
-                        for record in sensor_data:
-                            s_type = record["type"]
-                            val = record["value"]
-                            
-                            if s_type not in analysis:
-                                analysis[s_type] = [] # Initialize a new list for this type
-                            
-                            analysis[s_type].append(val)
-                        
-                        print(f"Mapped Data: {analysis}")
-                        # Output: {'Temp': [22.5, 23.0], 'Vibration': [0.5], 'Pressure': [101.3]}
-                    </code></pre>
+<pre><code class="language-python">
+# Raw data: A list of dictionaries (common in API results)
+sensor_data = [
+    {"id": "SN-001", "type": "Temp", "value": 22.5},
+    {"id": "SN-002", "type": "Vibration", "value": 0.5},
+    {"id": "SN-003", "type": "Temp", "value": 23.0},
+    {"id": "SN-004", "type": "Pressure", "value": 101.3}
+]
+
+# Dictionary Manipulation: Grouping values by their type
+analysis = {}
+
+for record in sensor_data:
+    s_type = record["type"]
+    val = record["value"]
+
+    if s_type not in analysis:
+        analysis[s_type] = []  # Initialize a new list for this type
+
+    analysis[s_type].append(val)
+
+print(f"Mapped Data: {analysis}")
+# Output: {'Temp': [22.5, 23.0], 'Vibration': [0.5], 'Pressure': [101.3]}
+</code></pre>
             
         <div style="background: #1e293b; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent);">
         <strong>What I learned:</strong>
