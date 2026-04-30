@@ -12,6 +12,7 @@
             --text: #f8fafc;
             --accent: #38bdf8;
             --muted: #94a3b8;
+            --python-green: #22c55e;
         }
 
         body {
@@ -43,7 +44,7 @@
             color: var(--muted);
         }
 
-        /* GRID */
+        /* PROJECT GRID - Responsive layout */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -52,282 +53,18 @@
             width: 100%;
         }
 
-        /* PROJECT CARDS */
+        /* SHARED PROJECT CARD STYLING */
         .project-card {
             background: var(--card-bg);
             padding: 22px;
             border-radius: 12px;
             border: 1px solid #334155;
-            transition: 0.25s ease;
-        }
-
-        .project-card {
-            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                border-color 0.25s ease;
-        }
-
-
-        .tag {
-            background: var(--accent);
-            color: #000;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .code-box {
-            background: #000;
-            padding: 10px;
-            border-radius: 6px;
-            font-family: monospace;
-            font-size: 12px;
-            margin: 15px 0;
-            border: 1px solid #334155;
-            white-space: pre-wrap;
-        }
-
-        .project-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: bold;
-            display: block;
-            margin-top: 12px;
-        }
-
-        /* TRAINING MODULES */
-        .modules {
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid #334155;
-            max-width: 1100px;
-            width: 100%;
-        }
-
-        .modules h2 {
-            margin-bottom: 10px;
-        }
-
-        .modules ul {
-            color: var(--muted);
-            line-height: 1.8;
-        }
-        
-        /* Fade-in animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .project-card {
+            opacity: 0; /* Used for fade-in animation */
             animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .card {
-            background: #1e293b;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #334155;
-            transition: border-color 0.3s ease;
-        }
-        .card:hover {
-            border-color: #38bdf8;
-        }
-        .card h4 {
-            margin-top: 0;
-            color: #38bdf8;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-                
-        
-        /* Staggered animation effect */
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
-        .project-card:nth-child(5) { animation-delay: 0.5s; }
-
-    </style>
-</head>
-
-<body>
-
-    <!-- HERO -->
-    <div class="hero">
-        
-        <h1>My Coding Lab</h1>
-        <p>A growing collection of projects from my software development and data engineering training.</p>
-    </div>
-
-    <!-- PROJECT GRID -->
-    <div class="grid">
-
-        <!-- CARD 1 -->
-        <div class="project-card">
-            <span class="tag">Logic Practice</span>
-            <h3>Algorithm: Array Sorting</h3>
-            <p>Created a script that organizes data points based on specific criteria. Focused on efficiency and clean loops.</p>
-            <code style="color: var(--muted);">Status: Completed</code>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="project-card">
-            <span class="tag">UI/UX</span>
-            <h3>Responsive Grid Layout</h3>
-            <p>This very page — practicing CSS Grid and Flexbox to create a layout that works on mobile and desktop.</p>
-            <code style="color: var(--muted);">Status: In Progress</code>
-            <a class="project-link" href="#">Show/Hide Details</a>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="project-card">
-            <span class="tag" style="background:#22c55e;">Python</span>
-            <h3>Safe Calculator Logic</h3>
-            <p>A deep dive into exception handling and function design.</p>
-
-            <div class="code-box">
-def safe_divide():
-    # Logic hidden...
-    return result
-            </div>
-
-            <a href="python-lab.html" class="project-link">View Python Lab →</a>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="project-card">
-            <span class="tag" style="background:#22c55e;">Python 02</span>
-            <h3>Advanced Data Processing</h3>
-            <p>Using loops and lists to handle multiple data points efficiently.</p>
-
-            <div class="code-box">
-for item in data:
-    process_item(item)
-            </div>
-
-            <a href="python-lab-2.html" class="project-link">View Data Lab →</a>
-        </div>
-
-        <!-- CARD 5 -->
-        <div class="project-card">
-            <span class="tag" style="background:#22c55e;">Python 03</span>
-            <h3>Combined SQL Analysis with Python</h3>
-            <p>Using Python to analyse a SQL database using DuckDB, matplotlib and pandas.</p>
-
-            <div class="code-box">
-for item in data:
-    process_item(item)
-            </div>
-
-            <a href="SQL/Data Lab.html" class="project-link">View Data Lab →</a>
-        </div>
-
-    </div>
-
-            <!-- CARD 6 -->
-        <div class="project-card">
-            <div class="card-header">
-                <h3>🛰️ Radar Antenna Analysis</h3>
-                <span class="tag">RF Signal Processing</span>
-            </div>
-                        
-            <div class="card-body">
-                <p>Automated pipeline for converting raw Touchstone/CSV data into actionable RF metrics. Features resonance detection at 77 GHz and radiation pattern visualization.</p>
-                
-                <div class="skills-chips">
-                    <span>Python</span>
-                    <span>Pandas</span>
-                    <span>Matplotlib</span>
-                </div>
-                
-                <!-- Link to  detailed page -->
-                <a href="RF/rf-analysis.html" class="btn">View Project Details</a>
-            </div>
-        </div>
-
-
-    <!-- TRAINING MODULES -->
-    <section class="modules">
-        <h2>Current Training Modules</h2>
-        <ul>
-            <li>Completed: HTML Structure & Tags</li>
-            <li>In Progress: CSS Layouts (Flexbox/Grid)</li>
-        </ul>
-    </section>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Portfolio | My Coding Lab</title>
-
-    <style>
-        :root {
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --text: #f8fafc;
-            --accent: #38bdf8;
-            --muted: #94a3b8;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 40px 20px;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease;
             display: flex;
             flex-direction: column;
-            align-items: center;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            text-align: center;
-            margin-bottom: 60px;
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--muted);
-        }
-
-        /* GRID */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            max-width: 1100px;
-            width: 100%;
-        }
-
-        /* PROJECT CARDS */
-        .project-card {
-            background: var(--card-bg);
-            padding: 22px;
-            border-radius: 12px;
-            border: 1px solid #334155;
-            transition: 0.25s ease;
+            justify-content: space-between;
         }
 
         .project-card:hover {
@@ -335,6 +72,7 @@ for item in data:
             transform: translateY(-6px);
         }
 
+        /* LABELS & TAGS */
         .tag {
             background: var(--accent);
             color: #000;
@@ -343,38 +81,73 @@ for item in data:
             font-size: 0.75rem;
             font-weight: bold;
             text-transform: uppercase;
+            width: fit-content;
+            margin-bottom: 12px;
         }
 
+        /* CODE SNIPPET BOXES */
         .code-box {
             background: #000;
-            padding: 10px;
+            padding: 12px;
             border-radius: 6px;
-            font-family: monospace;
-            font-size: 12px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
             margin: 15px 0;
             border: 1px solid #334155;
             white-space: pre-wrap;
+            color: #d1d5db;
         }
 
-        .project-link {
+        /* LINKS & BUTTONS */
+        .project-link, .btn {
             color: var(--accent);
             text-decoration: none;
             font-weight: bold;
-            display: block;
+            display: inline-block;
             margin-top: 12px;
+            transition: opacity 0.2s;
         }
 
-        /* TRAINING MODULES */
+        .project-link:hover, .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* SKILLS CHIPS (Specific to RF Card) */
+        .skills-chips {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .skills-chips span {
+            font-size: 11px;
+            background: #334155;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--muted);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Staggered entry for cards */
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+
+        /* TRAINING SECTION */
         .modules {
-            margin-top: 60px;
+            margin-top: 80px;
             padding-top: 30px;
             border-top: 1px solid #334155;
             max-width: 1100px;
             width: 100%;
-        }
-
-        .modules h2 {
-            margin-bottom: 10px;
         }
 
         .modules ul {
@@ -386,7 +159,94 @@ for item in data:
 
 <body>
 
-    <!-- HERO -->
-    <div class="hero">
+    <!-- HERO SECTION -->
+    <header class="hero">
         <h1>My Coding Lab</h1>
-        <p>A growing collection
+        <p>A professional showcase of my transition into Software Development and Data Engineering.</p>
+    </header>
+
+    <!-- PROJECT GRID START -->
+    <main class="grid">
+
+        <!-- 1. ALGORITHM LOGIC -->
+        <div class="project-card">
+            <div>
+                <span class="tag">Logic Practice</span>
+                <h3>Algorithm: Array Sorting</h3>
+                <p>Created a script that organizes data points based on specific criteria. Focused on efficiency and clean loops.</p>
+            </div>
+            <code style="color: var(--muted); font-size: 0.8rem;">Status: Completed</code>
+        </div>
+
+        <!-- 2. RF ANALYSIS (NEWEST PROJECT) -->
+        <div class="project-card">
+            <div>
+                <span class="tag">RF Engineering</span>
+                <h3>🛰️ Radar Antenna Analysis</h3>
+                <p>Automated pipeline for converting raw Touchstone/CSV data into actionable engineering metrics ($S_{11}$ & Polar Patterns).</p>
+                <div class="skills-chips">
+                    <span>Python</span> <span>Pandas</span> <span>Matplotlib</span>
+                </div>
+            </div>
+            <a href="RF/rf-analysis.html" class="btn">View Lab Case Study →</a>
+        </div>
+
+        <!-- 3. PYTHON CALCULATOR -->
+        <div class="project-card">
+            <div>
+                <span class="tag" style="background: var(--python-green);">Python</span>
+                <h3>Safe Calculator Logic</h3>
+                <p>A deep dive into exception handling, edge-case management, and modular function design.</p>
+                <div class="code-box">
+def safe_divide(a, b):
+    try: return a / b
+    except ZeroDivisionError:
+        return "Error"
+                </div>
+            </div>
+            <a href="python-lab.html" class="project-link">View Python Lab →</a>
+        </div>
+
+        <!-- 4. DATA PROCESSING -->
+        <div class="project-card">
+            <div>
+                <span class="tag" style="background: var(--python-green);">Python 02</span>
+                <h3>Advanced Data Processing</h3>
+                <p>Leveraging Python lists and loops to process multi-point datasets efficiently.</p>
+                <div class="code-box">
+for item in dataset:
+    clean_data(item)
+    analyze(item)
+                </div>
+            </div>
+            <a href="python-lab-2.html" class="project-link">View Data Lab →</a>
+        </div>
+
+        <!-- 5. SQL & ANALYTICS -->
+        <div class="project-card">
+            <div>
+                <span class="tag" style="background: var(--python-green);">Python 03</span>
+                <h3>SQL Analysis with Python</h3>
+                <p>Integrated SQL queries with Python via DuckDB to perform complex relational data analysis.</p>
+                <div class="code-box">
+query = "SELECT * FROM data"
+results = duckdb.query(query)
+                </div>
+            </div>
+            <a href="SQL/Data Lab.html" class="project-link">Analyze SQL Lab →</a>
+        </div>
+
+    </main>
+
+    <!-- TRAINING MODULES SECTION -->
+    <section class="modules">
+        <h2>Technical Roadmap</h2>
+        <ul>
+            <li><strong>Completed:</strong> HTML5 Semantic Structure & GitHub Version Control</li>
+            <li><strong>In Progress:</strong> Advanced CSS Layouts & RF Signal Filtering (Savitzky-Golay)</li>
+            <li><strong>Upcoming:</strong> Interactive Data Dashboards (Plotly/Dash)</li>
+        </ul>
+    </section>
+
+</body>
+</html>
