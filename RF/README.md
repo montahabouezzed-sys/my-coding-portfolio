@@ -1,1 +1,1 @@
-
+I developed a Python pipeline to process high-frequency electromagnetic data, converting complex S-parameters into Magnitude (dB) to identify the antenna's resonance frequency. I equally created a 2D polar plot for the antenna realized gain at 77 GHz (resonance frequency).
