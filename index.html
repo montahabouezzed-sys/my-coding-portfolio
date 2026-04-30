@@ -130,6 +130,25 @@
             animation: fadeInUp 0.6s ease forwards;
             opacity: 0;
         }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            transition: border-color 0.3s ease;
+        }
+        .card:hover {
+            border-color: #38bdf8;
+        }
+        .card h4 {
+            margin-top: 0;
+            color: #38bdf8;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+                
         
         /* Staggered animation effect */
         .project-card:nth-child(1) { animation-delay: 0.1s; }
@@ -217,20 +236,27 @@ for item in data:
 
             <!-- CARD 6 -->
         <div class="project-card">
-            <span class="tag" style="background:#22c55e;">Python 03</span>
-            <h3>🛰️ Radar Antenna Analysis</h3>
-            <p>Automated pipeline for converting raw Touchstone/CSV data into actionable RF metrics. Features resonance detection at 77 GHz and radiation pattern visualization.</p>
-
-
-            <div class="code-box">
-for item in data:
-    process_item(item)
+            <div class="card-header">
+                <h3>🛰️ Radar Antenna Analysis</h3>
+                <span class="tag">RF Signal Processing</span>
             </div>
-
-            <a href="RF/rf_card.html" class="project-link">View Data Lab →</a>
+            
+            <!-- Update path to point to your RF folder assets -->
+            <img src="./RF/assets/plot_RL_radarBands.png" alt="S11 Return Loss Plot" class="card-img">
+            
+            <div class="card-body">
+                <p>Automated pipeline for converting raw Touchstone/CSV data into actionable RF metrics. Features resonance detection at 77 GHz and radiation pattern visualization.</p>
+                
+                <div class="skills-chips">
+                    <span>Python</span>
+                    <span>Pandas</span>
+                    <span>Matplotlib</span>
+                </div>
+                
+                <!-- Link to your detailed page -->
+                <a href="./RF/rf-analysis.html" class="btn">View Project Details</a>
+            </div>
         </div>
-
-    </div>
 
 
     <!-- TRAINING MODULES -->
