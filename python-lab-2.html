@@ -24,15 +24,15 @@
 <pre><code class="language-python">
 # A script to filter high-value transactions
 transactions = [10.50, 100.00, 5.25, 500.0, 12.00]
-    high_value = []
+high_value = []
             
-    def filter_data(data_list):
-        for item in data_list:
-            if item > 50:
-                high_value.append(item)
-            return high_value
+def filter_data(data_list):
+    for item in data_list:
+        if item > 50:
+            high_value.append(item)
+    return high_value
     
-        print(f"High value items: {filter_data(transactions)}")
+print(f"High value items: {filter_data(transactions)}")
 </code></pre>
 
         <div style="background: #1e293b; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent);">
